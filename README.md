@@ -6,7 +6,7 @@ This is free and unencumbered software released into the public domain.
 
 # How to set up
 ## Prerequisites
-1. Docker
+- Docker
 
 ## Process
 1. Clone the Git repository to a folder

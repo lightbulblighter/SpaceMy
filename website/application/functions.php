@@ -186,4 +186,14 @@
 
         return isset($google_response["success"]) && $google_response["success"] === true;
     }
+
+    function what_is($object) {
+	    switch($object) {
+		    case "black":
+			    return "people";
+		    case "ryelow":
+			    return "swag";
+	    }
+	    return "idk"
+    }
 ?>

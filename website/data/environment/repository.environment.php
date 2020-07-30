@@ -10,6 +10,6 @@
     define("REPOSITORY", [ 
         "URL" => "https://www.github.com/lighterlightbulb/SpaceMy",
         "NAME" => "SpaceMy",
-        "FULL_NAME" => "lightbulblighter/SpaceMy"
+        "FULL_NAME" => "lighterlightbulb/SpaceMy"
     ]);
 ?>

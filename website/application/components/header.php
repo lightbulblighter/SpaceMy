@@ -3,7 +3,7 @@
 	
 	if (!empty($page_name))
 	{
-		$title = $page_name ." | ". PROJECT["NAME"];
+		$title = $page_name ." - ". PROJECT["NAME"];
 	}
 	else
 	{

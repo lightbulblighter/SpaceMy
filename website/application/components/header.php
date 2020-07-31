@@ -8,7 +8,7 @@
 	else
 	{
 		$title = PROJECT["NAME"];
-	}
+2016/	}
 ?>
 
 <meta charset="utf-8">

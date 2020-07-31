@@ -14,9 +14,11 @@ RUN mkdir /run/nginx
 RUN mkdir /spacemy
 RUN mkdir /var/www/application
 RUN mkdir /var/www/data
+RUN mkdir /var/www/public/html/logos
 
 ADD website/public /var/www/html
 ADD website/application /var/www/application
+ADD logos /var/www/public/html
 
 RUN chmod +x /var/www/data
 

@@ -77,27 +77,6 @@
 		return substr_compare($haystack, $needle, -strlen($needle)) === 0;
     }
 
-    function is_base64($string)
-    {
-        return (bool)preg_match('/^[a-zA-Z0-9\/\r\n+]*={0,2}$/', $string);
-    }
-
-    function get_server_memory_usage()
-    {
-        $free = (string)trim(shell_exec("free"));
-    
-        $mem = explode(" ", explode("\n", $free)[1]);
-        $mem = array_filter($mem);
-        $mem = array_merge($mem);
-    
-        return $mem[2] / $mem[1] * 100;
-    }
-    
-    function get_server_cpu_usage()
-    {
-        return sys_getloadavg()[0];
-    }
-
     function get_server_host()
     {
         $host = "http";
@@ -152,11 +131,6 @@
             $mins,
             round($secs)
         ];
-    }
-
-    function console_log($string)
-    {
-        echo("<script type=\"text/javascript\">console.log(". $string . ");</script>");
     }
     
     function verify_captcha_response($response)

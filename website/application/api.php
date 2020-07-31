@@ -57,7 +57,7 @@
                     $message = "In order to create an account on ". PROJECT["NAME"] .", you must enter a username.";
                 }
                 
-                if (!ctype_alnum($information["username"]) && empty($message))
+                if (!ctype_alnum($username) && empty($message))
                 {
                     $message = "You cannot create an account with a username that contains special characters.";
                 }
@@ -80,7 +80,7 @@
                 if (empty($message))
                 {
                     $email = str_replace(str_replace(strstr($email, "@"), "", strstr($email, "+")), "", $email); // strip the tag from address, e.g john+alt@gmail.com -> john@gmail.com
-                    $email = filter_var(trim($information["email"]), FILTER_SANITIZE_EMAIL);
+                    $email = filter_var(trim($email), FILTER_SANITIZE_EMAIL);
                 
                     if ((!$email || !filter_var($email, FILTER_VALIDATE_EMAIL)) && empty($message))
                     {
@@ -175,7 +175,7 @@
                                         if (empty($message))
                                         {
                                             $statement = $sql->prepare("SELECT `uses`, `max_uses` FROM `invite_keys` WHERE `key` = ?");
-                                            $statement->execute([$information["invite_key"]]);
+                                            $statement->execute([$info["invite_key"]]);
                                             $result = $statement->fetch(PDO::FETCH_ASSOC);
                                             
                                             if (!$result && empty($message))
@@ -194,7 +194,7 @@
                                                 {
                                                     // Mark key as used
                                                     $statement = $sql->prepare("UPDATE `invite_keys` SET `uses` = `uses` + 1 WHERE `key` = ?");
-                                                    $statement->execute([$information["invite_key"]]);
+                                                    $statement->execute([$info["invite_key"]]);
                                                 }
                                             }
                                         }

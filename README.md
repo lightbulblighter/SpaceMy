@@ -27,7 +27,6 @@ Though SpaceMy is actively being developed by a community of 100+ people, we'd l
 - Website Design: Mafftere
 - Wrongthink moderation: @johnfortnitekennedyCorp
 - Morale support: sciencekid
-- Class Clown: TypicalName (@typicalname0)
 
 ## Notice
 Please be advised that this is the *official* SpaceMy repository. We have been anonymously notified by someone that there exists a fraud copy of this code in order to trick and decieve users into giving away their passwords. Action has since been taken and GitHub has been contacted about this issue, but please be advised that all information about SpaceMy development will come from here.

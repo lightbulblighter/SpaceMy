@@ -1,5 +1,19 @@
 # SpaceMy
-MySpace 'recreation', replicating the forgotten sense of user customizability found in MySpace. A work-in-progress social network.
+A remake/fan recreation of MySpace, with goals to recreate the user customizability forgotten in modern social networking.
+
+This repository contains no copyrighted, or stolen code. All content here is 100% original. SpaceMy is not sponsored by, or hosted by MySpace.
+
+## Features
+- Selling Feature: Customizability
+    - User CSS modification
+    - Jukebox, upload a song that represents you
+    - Site customizability is up to the user
+- We don't sell your data
+- User security
+- Open source, public domain software
+
+## How can I help?
+If you know how to code, contribute using pull requests. If you like to test stuff, join the website and test the craziest stuff you can think of and try to find bugs, then report them in issues. Everything helps!
 
 ## License
 This is free and unencumbered software released into the public domain.
@@ -18,6 +32,8 @@ Though SpaceMy is actively being developed by a community of 100+ people, we'd l
 ## Notice
 Please be advised that this is the *official* SpaceMy repository. We have been anonymously notified by someone that there exists a fraud copy of this code in order to trick and decieve users into giving away their passwords. Action has since been taken and GitHub has been contacted about this issue, but please be advised that all information about SpaceMy development will come from here.
 
+SpaceMy is official hosted at the domain https://spacemy.rboxlo.xyz/.
+
 ## How to set up
 ### Prerequisites
 - Docker
@@ -29,3 +45,5 @@ Please be advised that this is the *official* SpaceMy repository. We have been a
 4. Run `docker-compose up --build --force-recreate` on the root folder.
 5. There should now be a folder named `container`. Copy `/website/data/` into `/container/website/data/`.
 6. Everything *should* be working at this point. If not, please submit an issue.
+
+The README is copyrighted by lightbulblighter (Fawad Chaudhry) and is not permitted for reuse or copying without explicit permission by lightbulblighter.

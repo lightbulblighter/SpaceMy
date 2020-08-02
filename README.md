@@ -38,7 +38,7 @@ Visit us at https://spacemy.rboxlo.xyz/
 
 Join our Discord server at https://discord.gg/byVHycY
 
-E-Mail us at spacemy@zhongguosweatshopservices.com
+E-Mail us at spacemy@rboxlo.xyz
 
 ## How to set up
 ### Prerequisites

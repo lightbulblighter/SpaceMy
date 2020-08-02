@@ -69,12 +69,12 @@
                     <div class="info">
                         <div class="text-align: center">Benefits</div>
                     </div>
-                    - Make new friends!
-                    - Talk to people!
+                    - Make new friends!<br>
+                    - Talk to people!<br>
                     <?php /* save embarrassment */ if ($users > 20): ?>
-                    - Over <?= $users ?> members!
+                    - Over <?= $users ?> members!<br>
                     <?php endif; ?>
-                    - Share your favorite videos and music!
+                    - Share your favorite videos and music!<br>
                 </div>
                 <br>
                 Already have an account? <a href="/login">Log in</a>

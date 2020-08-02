@@ -5,7 +5,7 @@
         
         try
         {
-            $database = new PDO("mysql:host=". SQL["HOST"] .";port=". SQL["PORT"] .";dbname=". SQL["DATABASE"], SQL["USERNAME"], SQL["PASSWORD"]);
+            $database = new PDO("mysql:host=" . SQL["HOST"] . ";port=" . SQL["PORT"] . ";dbname=" . SQL["DATABASE"], SQL["USERNAME"], SQL["PASSWORD"]);
             $database->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_SILENT);
             $database->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
         }

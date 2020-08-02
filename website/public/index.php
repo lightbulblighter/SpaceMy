@@ -1,10 +1,13 @@
 <?php
     require_once($_SERVER["DOCUMENT_ROOT"] . "/../application/includes.php");
-
+    require_once($_SERVER["DOCUMENT_ROOT"] . "/../application/database.php");
+    
     if (isset($_SESSION["user"]))
     {
         redirect("/my/dashboard");
     }
+
+    open_database_connection($sql);
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +38,20 @@
                 <br>
 
                 <div class="info">Latest Blog Posts</div>
-                <?php // TODO ?>
+                <?php
+                    $statement = $sql->prepare("SELECT `id`, `title`, `author` FROM `blogs` ORDER BY `id` DESC LIMIT 5");
+                    $statement->execute();
+
+                    foreach ($statement as $result):
+                        $user = $sql->prepare("SELECT `username` FROM `users` WHERE `id` = ?");
+                        $user->execute($result["author"]);
+                        $username = $user->fetch(PDO::FETCH_ASSOC)["username"];
+                ?>
+                        <a href="/blogs/view?id=<?= $result["id"] ?>"><?= $result["title"] ?> - by <a href="/users/view?id=<?= $author ?>"><?= $username ?></a></a><br><br>
+                <?php
+                    endforeach;
+                ?>
+
                 <a href="/blogs/">View more blog posts</a>
                 <br><br>
 
@@ -48,9 +64,7 @@
             </div>
 
             <div class="right">
-                <div class="info">Users</div>
-                <?php // TODO ?>
-                <a href="/users/">View more users</a>
+                <div class="info">Features</div>
             </div>
         </div>
     </body>

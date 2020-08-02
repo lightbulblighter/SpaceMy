@@ -1,5 +1,6 @@
 container/
 SpaceMy.code-workspace
+adminer*
 
 # Docker
 docker-compose.yml

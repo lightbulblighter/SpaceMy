@@ -10,7 +10,7 @@
 
     open_database_connection($sql);
 
-    $loggingin = false;
+    $logging_in = false;
     $login_message = "";
     if (isset($_POST["login"]) && $_SERVER["REQUEST_METHOD"] === "POST")
     {

@@ -167,7 +167,7 @@
                                             $message = "You need an invite key to register on ". PROJECT["NAME"] .".";
                                         }
                                         
-                                        if (!ctype_alnum($info["invite_key"]) && empty($message))
+                                        if (!ctype_alnum($info["key"]) && empty($message))
                                         {
                                             $message = "Invalid invite key.";
                                         }
@@ -194,7 +194,7 @@
                                                 {
                                                     // Mark key as used
                                                     $statement = $sql->prepare("UPDATE `invite_keys` SET `uses` = `uses` + 1 WHERE `key` = ?");
-                                                    $statement->execute([$info["invite_key"]]);
+                                                    $statement->execute([$info["key"]]);
                                                 }
                                             }
                                         }
@@ -205,7 +205,7 @@
                                         $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
 
                                         // Create user
-                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `email`, `password`, `register_ip`, `last_ip`, `date`) VALUES (?, ?, ?, ?, ?, ?)");
+                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `register_ip`, `last_ip`, `created`) VALUES (?, ?, ?, ?, ?, ?)");
                                         $statement->execute([$username, $email, $password, $ip, $ip, time()]);
 
                                         // Get user

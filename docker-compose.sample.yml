@@ -2,14 +2,15 @@ version: "3.8"
 services:
   database:
     image: mysql
+    command: --init-file /structure.sql
     environment:
-      MYSQL_USER: root
-      MYSQL_ROOT_USER: root
       MYSQL_DATABASE: spacemy
       MYSQL_PASSWORD: sample
       MYSQL_ROOT_PASSWORD: sample
     ports:
       - "3306:3306"
+    volumes:
+      - ./website/structure.sql:/structure.sql
   spacemy:
     build: ./
     ports:

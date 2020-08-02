@@ -6,19 +6,18 @@ RUN apk add bash
 
 RUN docker-php-ext-install mbstring
 RUN docker-php-ext-install pdo_mysql
-RUN docker-php-ext-install mysqli
 
 RUN rm -rf /var/www/*
 RUN mkdir /run/nginx
 
-RUN mkdir /spacemy
 RUN mkdir /var/www/application
 RUN mkdir /var/www/data
-RUN mkdir /var/www/public/html/logos
 
 ADD website/public /var/www/html
 ADD website/application /var/www/application
-ADD logos /var/www/public/html
+
+RUN mkdir /var/www/html/html/logos
+ADD logos /var/www/public/html/logos
 
 RUN chmod +x /var/www/data
 

@@ -205,8 +205,8 @@
                                         $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
 
                                         // Create user
-                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `register_ip`, `last_ip`, `created`) VALUES (?, ?, ?, ?, ?, ?)");
-                                        $statement->execute([$username, $email, $password, $ip, $ip, time()]);
+                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `register_ip`, `last_ip`, `created`, `last_active`, `nickname`, `stylesheet`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+                                        $statement->execute([$username, $email, $password, $ip, $ip, time(), time(), $username, "/* Welcome to the SpaceMy CSS editor! */"]);
 
                                         // Get user
                                         $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");

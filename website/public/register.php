@@ -18,10 +18,9 @@
 
     if ($registering)
     {
-        create_account($registration_message, $sql, $statement, $_POST); // Pass statement and sql to get de-initialized
-        echo($registration_message);
+        create_account($registration_message, $sql, $statement, $_POST); // Pass current SQL connection
     }
-    
+
     close_database_connection($sql, $statement);
 ?>
 

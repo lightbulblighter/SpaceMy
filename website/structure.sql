@@ -92,13 +92,10 @@ CREATE TABLE `users` (
   `register_ip` text NOT NULL,
   `last_ip` text NOT NULL,
   `created` int NOT NULL,
-  `current_group` int NOT NULL,
-  `nickname` text NOT NULL,
-  `css` longtext NOT NULL,
   `last_active` int NOT NULL,
-  `pronouns` text NOT NULL,
+  `nickname` text NOT NULL,
+  `stylesheet` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
+  `current_group` int NOT NULL DEFAULT '-1',
+  `pronouns` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL DEFAULT 'xe/xim',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
--- 2020-08-02 07:28:51

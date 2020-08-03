@@ -48,7 +48,7 @@ E-Mail us at spacemy@rboxlo.xyz
 1. Clone the Git repository to a folder
 2. Configure your setup in `docker-compose.sample.yml` with stuff such as MySQL passwords, etc.
 3. Match the compose configuration with the website's environment in `/website/data/environment/`. Each setting is documented, so this should be fairly easy.
-4. Run `docker-compose up --build --force-recreate` on the root folder.
+4. Run `docker-compose up --build --force-recreate --remove-orphans` on the root folder.
 5. There should now be a folder named `container`. Copy `/website/data/` into `/container/website/data/`.
 6. Everything *should* be working at this point. If not, please submit an issue.
 

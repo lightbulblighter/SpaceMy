@@ -13,13 +13,15 @@
     $statement->execute();
     $users = ceil((int)$statement->fetchColumn() / 10) * 10; // Get user count, convert to integer, round to nearest 10
 
-    $registering = false;
+    $registering = (isset($_POST["register"]) && $_SERVER["REQUEST_METHOD"] === "POST");
     $registration_message = "";
-    if (isset($_POST["register"]) && $_SERVER["REQUEST_METHOD"] === "POST")
+
+    if ($registering)
     {
         create_account($registration_message, $sql, $statement, $_POST); // Pass statement and sql to get de-initialized
+        echo($registration_message);
     }
-
+    
     close_database_connection($sql, $statement);
 ?>
 
@@ -40,9 +42,9 @@
 
             <div class="left">
                 <?php if ($registering && !empty($registration_message)): ?>
-                <small style="color: red"><?= $registration_message ?></small>
+                <small style="color: red"><?= $registration_message ?></small><br>
                 <?php elseif ($registering && empty($registration_message)): ?>
-                <small style="color: green">Successfully created account, <?= $_POST["username"] ?>!</small>
+                <small style="color: green">Successfully created account, <?= $_POST["username"] ?>!</small><br>
                 <?php endif; ?>
                 
                 <form method="post">

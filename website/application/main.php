@@ -33,27 +33,7 @@
         $_SESSION["ip"] = get_user_ip();
     }
 
-    if (!PROJECT["DEBUGGING"])
-    {
-        if (isset($_SESSION["user"]))
-        {
-            if ($_SESSION["user"]["permissions"]["see_errors"])
-            {
-                ini_set("display_errors", 1);
-                ini_set("display_startup_errors", 1);
-                error_reporting(E_ALL);
-            }
-            else
-            {
-                error_reporting(0);
-            }
-        }
-        else
-        {
-            error_reporting(0);
-        }
-    }
-    else
+    if (PROJECT["DEBUGGING"])
     {
         ini_set("display_errors", 1);
         ini_set("display_startup_errors", 1);

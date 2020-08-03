@@ -190,23 +190,26 @@
                                         }
                                     }
 
-                                    $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
+                                    if (empty($message))
+                                    {
+                                        $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
 
-                                    // Create user
-                                    $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `created`, `last_active`, `nickname`, `stylesheet`) VALUES (?, ?, ?, ?, ?, ?, ?)");
-                                    $statement->execute([$username, $email, $password, time(), time(), $username, "/* Welcome to the SpaceMy CSS editor! */"]);
+                                        // Create user
+                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `created`, `last_active`, `nickname`, `stylesheet`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                        $statement->execute([$username, $email, $password, time(), time(), $username, "/* Welcome to the SpaceMy CSS editor! */"]);
 
-                                    // Get user
-                                    $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");
-                                    $statement->execute([$username]);
-                                    $result = $statement->fetch(PDO::FETCH_ASSOC);
+                                        // Get user
+                                        $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");
+                                        $statement->execute([$username]);
+                                        $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-                                    // Set session
-                                    $_SESSION["user"] = $result;
-                                    $_SESSION["user"]["password"] = ""; // dont keep the hash in session just in case
+                                        // Set session
+                                        $_SESSION["user"] = $result;
+                                        $_SESSION["user"]["password"] = ""; // dont keep the hash in session just in case
 
-                                    // We've finished!
-                                    // The lack of a registration_message should tell them that we successfully registered
+                                        // We've finished!
+                                        // The lack of a registration_message should tell them that we successfully registered
+                                    }
                                 }
                             }
                         }

@@ -8,8 +8,12 @@ This repository contains no copyrighted, or stolen code. All content here is 100
     - User CSS modification
     - Jukebox, upload a song that represents you
     - Site customizability is up to the user
-- We don't sell your data
 - User security
+    - All E-Mail addresses, IP addresses, are securely encrypted
+    - Modern-day Argon2 password hashing
+    - We don't sell your data
+    - Extensive privacy controls
+    - Top-notch security
 - Open source, public domain software
 
 ## How can I help?

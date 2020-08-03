@@ -16,5 +16,6 @@ services:
     ports:
       - "80:80"
     volumes:
-      - ./container/website/logs:/var/log/nginx
+      - ./container/website/logs/nginx:/var/log/nginx
+      - ./container/website/logs/mysql:/var/log/mysql
       - ./container/website/data:/var/www/data

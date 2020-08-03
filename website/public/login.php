@@ -10,11 +10,11 @@
 
     open_database_connection($sql);
 
-    $logging_in = false;
+    $logging_in = (isset($_POST["login"]) && $_SERVER["REQUEST_METHOD"] === "POST");
     $login_message = "";
-    if (isset($_POST["login"]) && $_SERVER["REQUEST_METHOD"] === "POST")
+    if ($logging_in)
     {
-        create_account($login_message, $sql, $statement, $_POST); // Pass statement and sql to get de-initialized
+        login($login_message, $sql, $statement, $_POST); // Pass current SQL connection
         if (empty($login_message))
         {
             redirect("/my/dashboard");

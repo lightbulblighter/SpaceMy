@@ -11,6 +11,8 @@ services:
       - "3306:3306"
     volumes:
       - ./website/structure.sql:/structure.sql
+    cap_add:
+      - SYS_NICE # CAP_SYS_NICE
   spacemy:
     build: ./
     ports:

@@ -89,8 +89,6 @@ CREATE TABLE `users` (
   `username` text NOT NULL,
   `password` text NOT NULL,
   `email` text NOT NULL,
-  `register_ip` text NOT NULL,
-  `last_ip` text NOT NULL,
   `created` int NOT NULL,
   `last_active` int NOT NULL,
   `nickname` text NOT NULL,

@@ -9,7 +9,7 @@ This repository contains no copyrighted, or stolen code. All content here is 100
     - Jukebox, upload a song that represents you
     - Site customizability is up to the user
 - User security
-    - All E-Mail addresses, IP addresses, are securely encrypted
+    - All private user details (e.g E-Mail addresses) are securely encrypted with military grade encryption
     - Modern-day Argon2 password hashing
     - We don't sell your data
     - Extensive privacy controls

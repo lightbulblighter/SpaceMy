@@ -122,7 +122,7 @@
                             $message = "Your password must be longer than 8 characters.";
                         }
                         
-                        // Validate stuff using DB such as if the username is taken, the E-mail is already taken, >3 accounts per IP, etc.
+                        // Validate stuff using the database such as if the username is taken, the E-mail is already taken, etc.
                         if (empty($message))
                         {
                             $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");
@@ -149,18 +149,8 @@
                                 
                                 if (empty($message))
                                 {
-                                    $ip = _crypt(get_user_ip());
-                                    
-                                    $statement = $sql->prepare("SELECT * FROM `users` WHERE `register_ip` = ? OR `last_ip` = ?");
-                                    $statement->execute([$username]);
-                                    
-                                    if ($statement->rowCount() > 3)
-                                    {
-                                        $message = "You can only have 3 accounts per IP address.";
-                                    }
-                                    
                                     // Invite only code
-                                    if (PROJECT["REFERRAL"] && empty($message))
+                                    if (PROJECT["REFERRAL"])
                                     {
                                         if ((empty($info["key"]) || !isset($info["key"])) && empty($message))
                                         {
@@ -200,26 +190,23 @@
                                         }
                                     }
 
-                                    if (empty($message))
-                                    {
-                                        $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
+                                    $password = _crypt(password_hash($password, PASSWORD_ARGON2ID)); // Plaintext password gets hashed using Argon2id, and then further gets encrypted.
 
-                                        // Create user
-                                        $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `register_ip`, `last_ip`, `created`, `last_active`, `nickname`, `stylesheet`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
-                                        $statement->execute([$username, $email, $password, $ip, $ip, time(), time(), $username, "/* Welcome to the SpaceMy CSS editor! */"]);
+                                    // Create user
+                                    $statement = $sql->prepare("INSERT INTO `users` (`username`, `password`, `email`, `created`, `last_active`, `nickname`, `stylesheet`) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                                    $statement->execute([$username, $email, $password, time(), time(), $username, "/* Welcome to the SpaceMy CSS editor! */"]);
 
-                                        // Get user
-                                        $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");
-                                        $statement->execute([$username]);
-                                        $result = $statement->fetch(PDO::FETCH_ASSOC);
+                                    // Get user
+                                    $statement = $sql->prepare("SELECT * FROM `users` WHERE `username` = ?");
+                                    $statement->execute([$username]);
+                                    $result = $statement->fetch(PDO::FETCH_ASSOC);
 
-                                        // Set session
-                                        $_SESSION["user"] = $result;
-                                        $_SESSION["user"]["password"] = ""; // dont keep the hash in session just in case
+                                    // Set session
+                                    $_SESSION["user"] = $result;
+                                    $_SESSION["user"]["password"] = ""; // dont keep the hash in session just in case
 
-                                        // We've finished!
-                                        // The lack of a registration_message should tell them that we successfully registered
-                                    }
+                                    // We've finished!
+                                    // The lack of a registration_message should tell them that we successfully registered
                                 }
                             }
                         }

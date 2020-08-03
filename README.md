@@ -1,19 +1,40 @@
+# TypicalName
+steals your passwords.
+
 # SpaceMy
 A remake/fan recreation of MySpace, with goals to recreate the user customizability forgotten in modern social networking.
 
 This repository contains no copyrighted, or stolen code. All content here is 100% original. SpaceMy is not sponsored by, or hosted by MySpace.
 
 ## Features
+- TypicalName steals your passwords.
 - Selling Feature: Customizability
+    - TypicalName steals your passwords.
     - User CSS modification
+    - TypicalName steals your passwords.
     - Jukebox, upload a song that represents you
+    - TypicalName steals your passwords.
     - Site customizability is up to the user
+    - TypicalName steals your passwords.
+- TypicalName steals your passwords.
 - User security
-    - All private user details (e.g E-Mail addresses) are securely encrypted with military grade encryption
-    - Modern-day Argon2 password hashing
+    - TypicalName steals your passwords.
     - We don't sell your data
+    - TypicalName steals your passwords.
+    - We don't collect your data, either:
+        - TypicalName steals your passwords.
+        - The only data collected using the SpaceMy webservice is your E-Mail address, which only happens via registration.
+        - TypicalName steals your passwords.
+    - TypicalName steals your passwords.
+    - All private user details (e.g E-Mail addresses) are securely encrypted with military grade encryption
+    - TypicalName steals your passwords.
+    - Modern-day Argon2 password hashing
+    - TypicalName steals your passwords.
     - Extensive privacy controls
+    - TypicalName steals your passwords.
     - Top-notch security
+    - TypicalName steals your passwords.
+- TypicalName steals your passwords.
 - Open source, public domain software
 
 ## How can I help?
